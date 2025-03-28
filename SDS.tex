@@ -1,0 +1,966 @@
+\includegraphics[width=3.5in,height=1.15625in]{media/image1.png}
+
+\textbf{School of Computer Science Engineering and Information Systems
+(SCORE)}
+
+\textbf{Winter Semester 2024-2025}
+
+\textbf{ISWE207P-OBJECT ORIENTED ANALYSIS AND DESIGN LAB}
+
+System Design Document
+
+Bank Management System
+
+\textbf{HARSHITH B 23MIS0012}
+
+\textbf{L45 + L46}
+
+\textbf{Associate Professor Sr Grade 2 Dr Magesh}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4364}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5636}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Document ID & SYSTEM DESIGN-v0.1 \\
+Version Number & \\
+Issue Date & December 13, 2024 \\
+Classification & Public \\
+\end{longtable}
+
+Copyright Notice
+
+©Trojan Solutions Limited, (2024 -- 2025)
+
+All Rights Reserved
+
+The information contained in this document is the property of Trojan
+Solutions Limited. No part of this document may be reproduced, stored in
+a retrieval system, or transmitted in any form, or by any means;
+mechanical, photocopying, recording, or otherwise, without the prior
+written consent of Trojan Solutions Limited. Under the law, copying
+includes translating into another language or format. Legal action will
+be taken against any infringement.
+
+The information contained in this document is subject to change without
+notice and does not carry any contractual obligation for Trojan
+Solutions Limited. Trojan Solutions Limited reserves the right to make
+changes to any products or services described in this document at any
+time without notice. Trojan Solutions Limited shall not be held
+responsible for the direct or indirect consequences of the use of the
+information contained in this document.
+
+\textbf{Revision History}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2263}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2070}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3098}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2568}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Date} & \textbf{Version} & \textbf{Description} & \textbf{Author
+(s)} \\
+/01/2020 & & Draft Version & Harshith B \\
+& & & \\
+& & & \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5892}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2595}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1512}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Reviewed By (Customer)} & \textbf{Signature} & \textbf{Date} \\
+& & \\
+& & \\
+& & \\
+& & \\
+& & \\
+\end{longtable}
+
+The reviewer signoff shall signify the recommendation for acceptance of
+this document.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5403}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4597}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Prepared By}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Acknowledged By}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+& \\
+Mr. Harshith B & Mr. Kaarthik. M \\
+Title: Chief Requirements Officer & Title: Chief Software Officer \\
+Trojan Solutions Limited & Vellore Limited \\
+Date: 25/03/2025 & Date: 25/03/2025 \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5015}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4985}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Accepted By}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Accepted By}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+& \\
+Mr. Nandakrishnan & Mr. Rithik. G \\
+Title: Chied Technology Officer & Title: Senior Architect \\
+Google Tech Solutions Limited & Google Tech Solutions Limited \\
+Date: 26/03/2025 & Date: 26/03/2025 \\
+\end{longtable}
+
+\textbf{Table of Contents}
+
+\hyperref[list-of-tables]{List of Tables 5}
+
+\hyperref[list-of-figures]{List of Figures
+\hyperref[list-of-figures]{6}}
+
+\hyperref[introduction]{1 Introduction \hyperref[introduction]{7}}
+
+\hyperref[purpose-of-document]{1.1 Purpose of Document
+\hyperref[purpose-of-document]{7}}
+
+\hyperref[X918f79d1401d26e11fe5c5060cfda901dfd4841]{1.2 Document Scope
+\hyperref[X918f79d1401d26e11fe5c5060cfda901dfd4841]{8}}
+
+\hyperref[in-scope]{1.2.1 In-Scope \hyperref[in-scope]{8}}
+
+\hyperref[out-of-scope]{1.2.2 Out-of-Scope \hyperref[out-of-scope]{8}}
+
+\hyperref[assumptions]{1.2.3 Assumptions \hyperref[assumptions]{8}}
+
+\hyperref[methodology-tools-and-approach]{1.3 Methodology, Tools, and
+Approach \hyperref[methodology-tools-and-approach]{8}}
+
+\hyperref[acronyms-and-abbreviations]{1.4 Acronyms and Abbreviations
+\hyperref[acronyms-and-abbreviations]{8}}
+
+\hyperref[design-overview]{2 Design Overview
+\hyperref[design-overview]{9}}
+
+\hyperref[background-information]{2.1 Background Information
+\hyperref[background-information]{9}}
+
+\hyperref[system-evolution-description]{2.2 System Evolution Description
+\hyperref[system-evolution-description]{9}}
+
+\hyperref[required-environment]{2.3 Required Environment
+\hyperref[required-environment]{10}}
+
+\hyperref[Xb309f13310ad76dd529681052fe5315a8c7c065]{2.4 Constraints
+\hyperref[Xb309f13310ad76dd529681052fe5315a8c7c065]{\textbf{.}}}10
+
+\hyperref[Xfce2f82cfd63ce3cc56ff7cd87639809d1de288]{2.5 Design
+Trade-offs \hyperref[Xfce2f82cfd63ce3cc56ff7cd87639809d1de288]{11}}
+
+\hyperref[structural-family-diagrams]{3 Structural Family Diagrams
+\hyperref[structural-family-diagrams]{11}}
+
+\hyperref[X064e3884438d5a452559189fc7e45d065967ef0]{3.1 Class Diagram
+11}
+
+\hyperref[X74cee0fdbef85b50ea600fc9189276a3bfcd0e2]{3.2 Object Diagram
+14}
+
+\hyperref[X1697ccb2e76750f21357dbfadeb6e81b5e54e78]{3.3 Package Diagram
+15}
+
+\hyperref[behavioral-family-diagrams]{4 Behavioral Family Diagrams 15}
+
+4.1 Use Case Diagram 15
+
+4.2 Use Case Descriptions 15
+
+4.3 State Chart Diagram 16
+
+4.4 Activity Diagram 16
+
+4.5 Sequence Diagram 16
+
+4.6 Collaboration Diagram 17
+
+\hyperref[X2415f40c9d0f9e87bdbc628763cbc47606accb8]{5 Architectural
+Family Diagrams 17}
+
+\hyperref[X131ff30b2dee961d64957eddfef9aef7e4844bb]{5.1 Component
+Diagram 17}
+
+\hyperref[X40e4a2f891c91a91e35c42386e697b8abc32e12]{5.2 Deployment
+Diagram 17}
+
+\hyperref[appendix]{Appendix 18}
+
+\section{List of Tables}\label{list-of-tables}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Acronyms and Abbreviations
+\item
+  Requirements Traceability Matrix
+\end{enumerate}
+
+\section{List of Figures}\label{list-of-figures}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Class Diagram
+\end{enumerate}
+
+\section{Introduction}\label{introduction}
+
+The \textbf{Bank Management System} is a software application designed
+to manage and automate core banking operations efficiently. The system
+provides a centralized platform for handling various banking services
+such as customer account management, transaction processing, loan
+handling, and secure authentication for customers and employees. By
+integrating digital solutions, the system minimizes human errors,
+enhances operational efficiency, and ensures seamless financial
+transactions.
+
+With the increasing reliance on digital banking services, a
+well-structured Bank Management System plays a crucial role in improving
+service accessibility, security, and compliance with banking
+regulations. The system is designed to support both online and offline
+banking operations, ensuring smooth interaction between customers and
+financial institutions. It offers functionalities such as automated
+transaction processing, real-time balance updates, detailed reporting,
+and enhanced security protocols to protect sensitive financial data.
+
+By incorporating modern technologies such as cloud computing, data
+encryption, and role-based access control, the system enhances banking
+services while maintaining industry standards. This document provides an
+in-depth view of the system's design, methodologies, and implementation
+strategies to ensure a robust and scalable banking solution.
+
+\subsection{Purpose of Document}\label{purpose-of-document}
+
+\protect\phantomsection\label{X918f79d1401d26e11fe5c5060cfda901dfd4841}{}The
+purpose of this document is to provide a structured and detailed
+overview of the \textbf{Bank Management System} and its design. It
+outlines the systems architecture, key functionalities, and
+implementation strategies, ensuring clarity in development and
+deployment.
+
+This document serves as a foundational guide for developers, project
+managers, system architects, and stakeholders to understand how the
+system is structured and how it aligns with the requirements of modern
+banking operations. By providing insights into the software and hardware
+components, database structure, and user interface design, it
+facilitates seamless integration and future scalability.
+
+Additionally, it ensures that security, efficiency, and compliance with
+financial regulations are well integrated into the system's design. The
+document also defines various performance benchmarks, best practices,
+and industry standards that must be adhered to throughout the system's
+lifecycle. Through comprehensive documentation, this SDD aims to create
+a structured roadmap for successful implementation, maintenance, and
+enhancement of the \textbf{Bank Management System} over time.
+
+\subsection{Document Scope}\label{document-scope}
+
+This document covers the systems design, including structural and
+behavioral diagrams, constraints, and trade-offs involved in the
+implementation.
+
+\subsubsection{In-Scope}\label{in-scope}
+
+\begin{itemize}
+\item
+  Customer Account Management
+\item
+  Transaction Handling (Deposits, Withdrawals, Transfers)
+\item
+  Loan Management
+\item
+  User Authentication and Role-Based Access
+\item
+  Report Generation
+\end{itemize}
+
+\subsubsection{Out-of-Scope}\label{out-of-scope}
+
+\begin{itemize}
+\item
+  Third-party Payment Gateway Integrations
+\item
+  AI-based fraud detection (Future Enhancement)
+\item
+  Advanced Financial Forecasting
+\end{itemize}
+
+\subsubsection{Assumptions}\label{assumptions}
+
+\begin{itemize}
+\item
+  The system will be used by bank employees and customers.
+\item
+  Internet connectivity is available for online banking features.
+\item
+  Security protocols such as encryption and authentication will be in
+  place.
+\end{itemize}
+
+\subsection{Methodology, Tools, and
+Approach}\label{methodology-tools-and-approach}
+
+\begin{itemize}
+\item
+  \textbf{\ul{Methodology}:} Object-Oriented Analysis and Design (OOAD)
+\item
+  \textbf{\ul{Tools Used}:} UML Diagrams (Lucidchart), MySQL, Spring
+  Boot, Java, React.js
+\item
+  \textbf{\ul{Approach}:} Agile development methodology
+\end{itemize}
+
+\subsection{Acronyms and
+Abbreviations:}\label{acronyms-and-abbreviations}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1824}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8176}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+GUI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Graphical User Interface
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+SDD & System Design Document \\
+API & Application Programming Interface \\
+DBMS & Database Management System \\
+RBAC & Role-Based Access Control \\
+TLS & Transport Layer Security \\
+KYC & Know Your Customer \\
+AML & Anti-Money Laundering \\
+\end{longtable}
+
+\section{Design Overview}\label{design-overview}
+
+\subsection{Background Information}\label{background-information}
+
+The \textbf{Bank Management System} is developed to address the growing
+need for an efficient, secure, and scalable platform for handling
+banking operations. Traditional banking systems rely heavily on manual
+processes, leading to inefficiencies, delays, and security
+vulnerabilities. The proposed system automates and streamlines key
+banking functions such as account management, transaction processing,
+and loan management, ensuring a seamless experience for both customers
+and banking staff.
+
+The system is designed to operate in an online environment, providing
+customers with 24/7 access to banking services. It integrates with
+financial institutions databases and APIs to ensure real-time data
+processing, secure transactions, and compliance with banking
+regulations. The Bank Management System aims to enhance customer
+satisfaction by offering a user-friendly interface, quick transaction
+processing, and robust security measures.
+
+\subsection{System Evolution
+Description}\label{system-evolution-description}
+
+Banking systems have evolved from traditional ledger-based accounting to
+digital solutions with automated workflows. The \textbf{Bank Management
+System} builds upon existing digital banking frameworks by incorporating
+advanced security features, cloud-based storage, and enhanced user
+authentication mechanisms. The system also allows for seamless
+integration with third-party financial services such as payment
+gateways, mobile banking applications, and regulatory compliance
+platforms.
+
+Improvements over traditional banking systems include:
+
+\begin{itemize}
+\item
+  Real-time transaction updates to reduce processing delays.
+\item
+  Secure authentication protocols (e.g., multi-factor authentication and
+  biometric verification).
+\item
+  Enhanced reporting and analytics for improved financial
+  decision-making.
+\item
+  Integration with mobile banking and digital payment solutions.
+\end{itemize}
+
+\subsection{Required Environment}\label{required-environment}
+
+To ensure the smooth operation of the \textbf{Bank Management System},
+the following environments are required:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2829}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7171}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Product/Solution & Environment \\
+Bank Management System & - \textbf{Production} (Live environment for
+real-time banking operations) \\
+& - \textbf{Development} (Used for testing and feature development) \\
+& - \textbf{Staging} (Pre-production environment for final testing
+before deployment) \\
+& - \textbf{Backup \& Recovery} (Dedicated environment for data backups
+and disaster recovery) \\
+\end{longtable}
+
+\subsection{This structured environment ensures the system remains
+scalable, secure, and efficient while supporting continuous improvements
+and compliance with banking
+regulations.}\label{this-structured-environment-ensures-the-system-remains-scalable-secure-and-efficient-while-supporting-continuous-improvements-and-compliance-with-banking-regulations.}
+
+\subsection{Constraints}\label{constraints}
+
+\protect\phantomsection\label{Xfce2f82cfd63ce3cc56ff7cd87639809d1de288}{}The
+design of the \textbf{Bank Management System} is influenced by various
+constraints that impact on its functionality, performance, and
+scalability:
+
+\begin{itemize}
+\item
+  \textbf{Hardware and Software Environment:} The system must run on
+  secure, high-performance servers with support for modern web
+  technologies.
+\item
+  \textbf{End-User Environment:} The system must be accessible across
+  various devices, including desktops, tablets, and mobile phones.
+\item
+  \textbf{Resources Availability:} Database and API services must be
+  consistently available to prevent downtime.
+\item
+  \textbf{Standards Compliance:} The system must adhere to banking and
+  financial regulatory standards such as PCI DSS, GDPR, and RBI
+  guidelines.
+\item
+  \textbf{Interoperability Requirements:} The system should integrate
+  seamlessly with third-party banking APIs and payment gateways.
+\item
+  \textbf{Security Requirements:} Data encryption, role-based access
+  control, and fraud detection mechanisms must be implemented.
+\item
+  \textbf{Performance Requirements:} The system should be capable of
+  handling a large volume of transactions without performance
+  degradation.
+\item
+  \textbf{Network Communications:} Secure and efficient communication
+  protocols should be used to protect data transmission over the
+  network.
+\item
+  \textbf{Verification and Validation Requirements:} Rigorous testing,
+  including unit testing, integration testing, and security testing,
+  must be conducted before deployment.
+\end{itemize}
+
+\subsection{Design Trade-offs}\label{design-trade-offs}
+
+Design decisions often involve trade-offs to balance performance,
+security, and usability. The \textbf{Bank Management System} considers
+the following trade-offs:
+
+\begin{itemize}
+\item
+  \textbf{Security vs. User Experience:} Implementing strong security
+  measures (e.g., multi-factor authentication) may slightly increase
+  login time but ensures data protection.
+\item
+  \textbf{Performance vs. Cost:} Cloud-based deployment offers
+  scalability but incurs higher operational costs compared to
+  on-premises hosting.
+\item
+  \textbf{Feature Set vs. Simplicity:} Including advanced features such
+  as AI-driven fraud detection enhances security but increases system
+  complexity.
+\item
+  \textbf{Real-time Processing vs. System Load:} Enabling real-time
+  transaction updates improves user experience but requires more
+  computational resources.
+\end{itemize}
+
+By carefully evaluating these trade-offs, the system ensures a balance
+between efficiency, security, and ease of use, providing a robust
+banking solution that meets modern financial requirements.
+
+\section{\texorpdfstring{Structural Family Diagrams
+}{Structural Family Diagrams }}\label{structural-family-diagrams}
+
+\subsection{Class Diagram}\label{class-diagram}
+
+\section{\texorpdfstring{ Classes}{ Classes}}\label{classes}
+
+Each entity in the banking system is modeled as a \textbf{class} with
+attributes and methods defining its behavior.
+
+\subsection{Customer}\label{customer}
+
+The \texttt{Customer} class represents bank customers and includes the
+following attributes and methods:
+
+\begin{itemize}
+\item
+  \textbf{Attributes:}
+
+  \begin{itemize}
+  \item
+    \texttt{customerID}: Unique identifier for the customer.
+  \item
+    \texttt{name}: Full name of the customer.
+  \item
+    \texttt{address}: Residential address of the customer.
+  \item
+    \texttt{accountList}: List of accounts associated with the customer.
+  \end{itemize}
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \item
+    \texttt{register(}\texttt{)} - Registers a new customer.
+  \item
+    \texttt{updateProfile}\texttt{(}\texttt{)} - Updates customer
+    information.
+  \end{itemize}
+\end{itemize}
+
+\subsection{BankEmployee}\label{bankemployee}
+
+The \texttt{BankEmployee} class represents employees managing banking
+operations.
+
+\begin{itemize}
+\item
+  \textbf{Attributes:}
+
+  \begin{itemize}
+  \item
+    \texttt{employeeID}: Unique identifier for the employee.
+  \item
+    \texttt{name}: Name of the employee.
+  \item
+    \texttt{role}: Job role (e.g., teller, manager).
+  \end{itemize}
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \item
+    \texttt{processTransaction}\texttt{(}\texttt{)} - Authorizes
+    transactions.
+  \item
+    \texttt{approveLoan}\texttt{(}\texttt{)} - Approves or rejects loan
+    applications.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Account}\label{account}
+
+The \texttt{Account} class serves as a base class with specializations
+such as \texttt{SavingsAccount} and \texttt{CurrentAccount}.
+
+\begin{itemize}
+\item
+  \textbf{Attributes:}
+
+  \begin{itemize}
+  \item
+    \texttt{accountNumber}: Unique identifier for the account.
+  \item
+    \texttt{balance}: Current balance in the account.
+  \item
+    \texttt{accountType}: Specifies account type (Savings/Current).
+  \end{itemize}
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \item
+    \texttt{deposit(amount)} - Deposits money into the account.
+  \item
+    \texttt{withdraw(amount)} - Withdraws money from the account.
+  \item
+    \texttt{checkBalance}\texttt{(}\texttt{)} - Returns the current
+    balance.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Transaction}\label{transaction}
+
+The \texttt{Transaction} class represents any financial operation such
+as deposit, withdrawal, and transfer.
+
+\begin{itemize}
+\item
+  \textbf{Attributes:}
+
+  \begin{itemize}
+  \item
+    \texttt{transactionID}: Unique identifier for the transaction.
+  \item
+    \texttt{transactionType}: Type of transaction
+    (Deposit/Withdrawal/Transfer).
+  \item
+    \texttt{amount}: Amount involved in the transaction.
+  \item
+    \texttt{timestamp}: Date and time of the transaction.
+  \end{itemize}
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \item
+    \texttt{processTransaction}\texttt{(}\texttt{)} - Executes the
+    transaction.
+  \item
+    \texttt{validateTransaction}\texttt{(}\texttt{)} - Validates the
+    transaction details.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Loan}\label{loan-1}
+
+The \texttt{Loan} class represents loan-related functionalities such as
+personal, home, or car loans.
+
+\begin{itemize}
+\item
+  \textbf{Attributes:}
+
+  \begin{itemize}
+  \item
+    \texttt{loanID}: Unique identifier for the loan.
+  \item
+    \texttt{loanType}: Type of loan (Home/Car/Personal).
+  \item
+    \texttt{loanAmount}: The borrowed amount.
+  \item
+    \texttt{interestRate}: Interest rate applied to the loan.
+  \item
+    \texttt{tenure}: Loan repayment period.
+  \end{itemize}
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \item
+    \texttt{approveLoan}\texttt{(}\texttt{)} - Approves or rejects a
+    loan.
+  \item
+    \texttt{calculateEMI}\texttt{(}\texttt{)} - Calculates the monthly
+    installment amount.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Payment}\label{payment}
+
+The \texttt{Payment} class handles payments for loans or bills.
+
+\begin{itemize}
+\item
+  \textbf{Attributes:}
+
+  \begin{itemize}
+  \item
+    \texttt{paymentID}: Unique identifier for the payment.
+  \item
+    \texttt{amount}: The amount paid.
+  \item
+    \texttt{paymentMethod}: Mode of payment (Cash/Card/Online).
+  \item
+    \texttt{status}: Payment status (Success/Failed/Pending).
+  \end{itemize}
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \item
+    \texttt{processPayment}\texttt{(}\texttt{)} - Executes the payment.
+  \item
+    \texttt{refundPayment}\texttt{(}\texttt{)} - Handles payment
+    refunds.
+  \end{itemize}
+\end{itemize}
+
+\includegraphics[width=6.18593in,height=3.59524in]{media/image2.jpeg}
+
+\subsection{Object Diagram}\label{object-diagram}
+
+\subsection{Concept and Description}\label{concept-and-description}
+
+The \textbf{Object Diagram} represents a snapshot of instances of
+classes in a system at a particular moment. It helps visualize the
+relationships between objects, showing their states and values.
+
+\subsection{Application in Banking
+System}\label{application-in-banking-system}
+
+In a banking system, an Object Diagram can illustrate:
+
+\begin{itemize}
+\item
+  An instance of a \texttt{Customer} object with linked \texttt{Account}
+  objects.
+\item
+  An \texttt{Account} instance with active transactions.
+\item
+  A \texttt{Loan} instance tied to a specific \texttt{Customer}.
+\end{itemize}
+
+\subsection{Package Diagram}\label{package-diagram}
+
+\subsection{Concept and Description}\label{concept-and-description-1}
+
+A \textbf{Package Diagram} organizes the system's classes into logical
+groups to manage complexity. It shows dependencies among different parts
+of the system.
+
+\subsection{Application in Banking
+System}\label{application-in-banking-system-1}
+
+\begin{itemize}
+\item
+  A package for \texttt{User\ Management} containing \texttt{Customer}
+  and \texttt{BankEmployee} classes.
+\item
+  A package for \texttt{Transaction\ Processing} containing
+  \texttt{Transaction}, \texttt{Payment}, and \texttt{Loan}.
+\item
+  A package for \texttt{Account\ Handling} containing \texttt{Account},
+  \texttt{SavingsAccount}, and \texttt{CurrentAccount}.
+\end{itemize}
+
+\section{4. Behavioral Family
+Diagrams}\label{behavioral-family-diagrams}
+
+\subsection{4.1. Use Case Diagram}\label{use-case-diagram}
+
+\subsubsection{Concept and Description}\label{concept-and-description-2}
+
+The \textbf{Use Case Diagram} captures interactions between actors
+(users) and the system. It highlights user goals and how the system
+fulfills them.
+
+\subsubsection{Application in Banking
+System}\label{application-in-banking-system-2}
+
+\begin{itemize}
+\item
+  \texttt{Customer} can open an account, make transactions, apply for
+  loans, and check balance.
+\item
+  \texttt{BankEmployee} can approve loans, process transactions, and
+  manage customers.
+\end{itemize}
+
+\subsection{4.2. Use Case Descriptions}\label{use-case-descriptions}
+
+Each functionality has a description with pre-conditions and
+post-conditions.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Open Account} \textbf{Pre-condition:} The user provides valid
+  ID and initial deposit. \textbf{Post-condition:} A new account is
+  created and linked to the customer.
+\item
+  \textbf{Deposit Money} \textbf{Pre-condition:} The customer has an
+  active account. \textbf{Post-condition:} The account balance is
+  updated.
+\item
+  \textbf{Withdraw Money} \textbf{Pre-condition:} Sufficient balance
+  exists in the account. \textbf{Post-condition:} Money is deducted from
+  the account.
+\item
+  \textbf{Apply for Loan} \textbf{Pre-condition:} The customer has a
+  valid account. \textbf{Post-condition:} The loan application is stored
+  for approval.
+\item
+  \textbf{Approve Loan} \textbf{Pre-condition:} The bank employee
+  validates loan details. \textbf{Post-condition:} The loan status is
+  updated to "Approved".
+\end{enumerate}
+
+\subsection{4.3 State Chart Diagram}\label{state-chart-diagram}
+
+\subsubsection{Concept and Description}\label{concept-and-description-3}
+
+A \textbf{State Chart Diagram} represents the various states an object
+can be in during its lifecycle.
+
+\subsubsection{Application in Banking
+System}\label{application-in-banking-system-3}
+
+\begin{itemize}
+\item
+  Account states: \texttt{Created} → \texttt{Active} → \texttt{Frozen} →
+  \texttt{Closed}
+\item
+  Transaction states: \texttt{Initiated} → \texttt{Processing} →
+  \texttt{Completed/Failed}
+\item
+  Loan states: \texttt{Applied} → \texttt{Approved} → \texttt{Disbursed}
+  → \texttt{Repaid}
+\end{itemize}
+
+\subsection{4.4 Activity Diagram}\label{activity-diagram}
+
+\subsubsection{Concept and Description}\label{concept-and-description-4}
+
+An \textbf{Activity Diagram} represents workflows and processes in a
+system.
+
+\subsubsection{Application in Banking
+System}\label{application-in-banking-system-4}
+
+\begin{itemize}
+\item
+  The sequence of a fund transfer: \texttt{Start} →
+  \texttt{Enter\ Details} → \texttt{Validate} →
+  \texttt{Process\ Transaction} → \texttt{Update\ Balance} →
+  \texttt{End}.
+\end{itemize}
+
+\subsection{4.5 Sequence Diagram}\label{sequence-diagram}
+
+\subsubsection{Concept and Description}\label{concept-and-description-5}
+
+A \textbf{Sequence Diagram} models interactions between objects in a
+sequential order.
+
+\subsubsection{Application in Banking
+System}\label{application-in-banking-system-5}
+
+\begin{itemize}
+\item
+  Customer initiates transaction → Bank verifies account → Transaction
+  is processed → Confirmation is sent.
+\end{itemize}
+
+\subsection{4.6 Collaboration Diagram}\label{collaboration-diagram}
+
+\subsubsection{Concept and Description}\label{concept-and-description-6}
+
+A \textbf{Collaboration Diagram} represents interactions among objects
+for a specific use case.
+
+\subsubsection{Application in Banking
+System}\label{application-in-banking-system-6}
+
+\begin{itemize}
+\item
+  Customer interacts with ATM → ATM communicates with Bank System → Bank
+  System updates account → ATM provides output.
+\end{itemize}
+
+Architectural Family Diagrams
+
+\section{5. Architectural Family
+Diagrams}\label{architectural-family-diagrams}
+
+\subsection{5.1. Component Diagram}\label{component-diagram}
+
+\subsubsection{Concept and Description}\label{concept-and-description-7}
+
+A \textbf{Component Diagram} illustrates the physical structure of the
+system, showing software components and their dependencies.
+
+\subsubsection{Application in Banking
+System}\label{application-in-banking-system-7}
+
+\begin{itemize}
+\item
+  UI Layer - Web Interface, Mobile App.
+\item
+  Business Logic Layer - Account Management, Transaction Processing.
+\item
+  Data Layer - Database for storing customer, account, and transaction
+  details.
+\end{itemize}
+
+\subsection{5.2. Deployment Diagram}\label{deployment-diagram}
+
+\subsubsection{Concept and Description}\label{concept-and-description-8}
+
+A \textbf{Deployment Diagram} represents hardware and software
+deployment in the system.
+
+\subsubsection{Application in Banking
+System}\label{application-in-banking-system-8}
+
+\begin{itemize}
+\item
+  Servers hosting the banking application.
+\item
+  Database server storing customer and transaction records.
+\item
+  ATM machines communicating with the server.
+\end{itemize}
+
+\section{Appendix}\label{appendix}
+
+\subsection{Requirements Traceability
+Matrix}\label{requirements-traceability-matrix}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2381}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4641}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2978}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Requirement ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Status
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+RQ001 & Customer Account Management & Implemented \\
+RQ002 & Online Fund Transfer & Implemented \\
+RQ003 & Loan Approval Process & Under Development \\
+RQ004 & Security Measures & Implemented \\
+\end{longtable}
+
+\subsection{Glossary of Terms}\label{glossary-of-terms}
+
+\begin{itemize}
+\item
+  \textbf{Customer} - A user with a bank account.
+\item
+  \textbf{Transaction} - A financial operation (Deposit, Withdrawal,
+  Transfer).
+\item
+  \textbf{Loan} - Borrowed money with an interest rate.
+\item
+  \textbf{ATM} - Automated Teller Machine for customer transactions.
+\end{itemize}
+
+\subsection{}\label{section}
