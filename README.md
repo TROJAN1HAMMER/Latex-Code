@@ -70,22 +70,22 @@ The system is designed to manage and automate core banking operations efficientl
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                  PRESENTATION LAYER                      │
+│                  PRESENTATION LAYER                     │
 │         (Web Interface, Mobile App, ATM)                │
 └────────────────────┬────────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────────┐
-│              BUSINESS LOGIC LAYER                        │
-│  ┌──────────────────────────────────────────────────┐  │
-│  │ • Account Management    • Transaction Processing│  │
-│  │ • Loan Management       • Payment Processing    │  │
-│  │ • User Authentication   • Report Generation    │  │
-│  └──────────────────────────────────────────────────┘  │
+│              BUSINESS LOGIC LAYER                       │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │ • Account Management    • Transaction Processing │   │
+│  │ • Loan Management       • Payment Processing     │   │
+│  │ • User Authentication   • Report Generation      │   │
+│  └──────────────────────────────────────────────────┘   │
 └────────────────────┬────────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────────┐
 │                   DATA LAYER                            │
-│         (MySQL Database, API Services)                 │
+│         (MySQL Database, API Services)                  │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -371,9 +371,9 @@ pdflatex -interaction=batchmode SDS.tex
 
 ### Acknowledgments
 - **Course Instructor**: Dr. Magesh (Associate Professor Sr Grade 2)
-- **Document Reviewer**: Mr. Kaarthik. M (Chief Software Officer, TechFlow Innovations Pvt. Ltd.)
-- **Architecture Reviewer**: Mr. Nandakrishnan (Chief Technology Officer, CloudScale Systems Inc.)
-- **Senior Architect Reviewer**: Mr. Rithik. G (Senior Architect, FinTech Architects Global)
+- **Document Reviewer**: Mr. Kaarthik. M 
+- **Architecture Reviewer**: Mr. Nandakrishnan 
+- **Senior Architect Reviewer**: Mr. Rithik. G 
 
 ---
 
